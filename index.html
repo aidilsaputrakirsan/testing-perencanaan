@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen SOP Keuangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistem Manajemen SOP Keuangan</h1>
+        <nav>
+            <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+            <button class="nav-btn" data-section="persiapan">Persiapan</button>
+            <button class="nav-btn" data-section="sakti">SAKTI</button>
+            <button class="nav-btn" data-section="monitoring">Monitoring</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <h2>Dashboard Status SOP</h2>
+            <div class="progress-container">
+                <div class="progress-step" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Estimasi Target</div>
+                    <div class="step-status" id="status-1">Pending</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-title">RKAOL</div>
+                    <div class="step-status" id="status-2">Pending</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Indikator Kinerja</div>
+                    <div class="step-status" id="status-3">Pending</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Monitoring</div>
+                    <div class="step-status" id="status-4">Pending</div>
+                </div>
+            </div>
+
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Proses Aktif</h3>
+                    <div class="card-value" id="total-aktif">0</div>
+                </div>
+                <div class="card">
+                    <h3>Proses Selesai</h3>
+                    <div class="card-value" id="total-selesai">0</div>
+                </div>
+                <div class="card">
+                    <h3>Memerlukan Revisi</h3>
+                    <div class="card-value" id="total-revisi">0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Persiapan Section -->
+        <section id="persiapan" class="section">
+            <h2>Tahap Persiapan - Estimasi Target Pendapatan</h2>
+            <form id="form-persiapan" class="form-container">
+                <div class="form-group">
+                    <label for="target-ukt">Target Pendapatan UKT:</label>
+                    <input type="number" id="target-ukt" name="targetUKT" required>
+                </div>
+                <div class="form-group">
+                    <label for="target-non-ukt">Target Pendapatan Non-UKT:</label>
+                    <input type="number" id="target-non-ukt" name="targetNonUKT" required>
+                </div>
+                <div class="form-group">
+                    <label for="periode">Periode:</label>
+                    <input type="text" id="periode" name="periode" placeholder="Contoh: 2024/2025" required>
+                </div>
+                <div class="form-group">
+                    <label for="catatan-persiapan">Catatan:</label>
+                    <textarea id="catatan-persiapan" name="catatan" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Simpan & Lanjutkan</button>
+            </form>
+        </section>
+
+        <!-- SAKTI Section -->
+        <section id="sakti" class="section">
+            <h2>Tahap SAKTI - Penyusunan RKAOL</h2>
+            <form id="form-sakti" class="form-container">
+                <div class="form-group">
+                    <label for="rkaol-kegiatan">Nama Kegiatan:</label>
+                    <input type="text" id="rkaol-kegiatan" name="namaKegiatan" required>
+                </div>
+                <div class="form-group">
+                    <label for="rkaol-anggaran">Total Anggaran:</label>
+                    <input type="number" id="rkaol-anggaran" name="totalAnggaran" required>
+                </div>
+                <div class="form-group">
+                    <label for="rkaol-status">Status RKAOL:</label>
+                    <select id="rkaol-status" name="statusRKAOL" required>
+                        <option value="">Pilih Status</option>
+                        <option value="draft">Draft</option>
+                        <option value="review">Review</option>
+                        <option value="approved">Approved</option>
+                        <option value="revision">Perlu Revisi</option>
+                    </select>
+                </div>
+                <div class="form-group" id="revisi-group" style="display: none;">
+                    <label for="alasan-revisi">Alasan Revisi:</label>
+                    <textarea id="alasan-revisi" name="alasanRevisi" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Simpan RKAOL</button>
+            </form>
+        </section>
+
+        <!-- Monitoring Section -->
+        <section id="monitoring" class="section">
+            <h2>Monitoring & Evaluasi</h2>
+            <form id="form-monitoring" class="form-container">
+                <div class="form-group">
+                    <label for="indikator-kinerja">Indikator Kinerja:</label>
+                    <textarea id="indikator-kinerja" name="indikatorKinerja" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="realisasi">Realisasi Anggaran (%):</label>
+                    <input type="number" id="realisasi" name="realisasi" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="evaluasi">Evaluasi Program:</label>
+                    <textarea id="evaluasi" name="evaluasi" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="laporan">Laporan Pelaksanaan:</label>
+                    <textarea id="laporan" name="laporan" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit Monitoring</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Memproses data...</p>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
