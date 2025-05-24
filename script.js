@@ -1,7 +1,7 @@
 // Konfigurasi
 const CONFIG = {
     // Ganti dengan URL Google Apps Script Anda setelah deployment
-    GAS_URL: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
+    GAS_URL: 'https://script.google.com/macros/s/AKfycbwuj_i9Dkx6zPNKCwJjjTFHW1wEf3vOBSXywSgyWAW5Qz0tF_57htAYFJaUWE5zFadM/exec',
     LOCAL_STORAGE_KEY: 'sop_data'
 };
 
